@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1><a href="/">Reviews Hub</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/reviews">All Reviews</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <section class="reviews-section">
+            <% if (selectedMovieId) { %>
+                <h2>Reviews for <%= movies.find(m => m.id === selectedMovieId).title %></h2>
+                <a href="/review/<%= selectedMovieId %>" class="btn">Write a Review</a>
+            <% } else { %>
+                <h2>All Reviews</h2>
+            <% } %>
+            
+            <div class="filter-controls">
+                <form action="/reviews" method="GET">
+                    <select name="movieId" onchange="this.form.submit()">
+                        <option value="">All Movies</option>
+                        <% movies.forEach(movie => { %>
+                            <option value="<%= movie.id %>" <%= selectedMovieId === movie.id ? 'selected' : '' %>>
+                                <%= movie.title %>
+                            </option>
+                        <% }); %>
+                    </select>
+                </form>
+            </div>
+            
+            <% if (reviews.length === 0) { %>
+                <p class="no-reviews">No reviews found.</p>
+            <% } else { %>
+                <div class="reviews-list">
+                    <% reviews.forEach(review => { 
+                        const movie = movies.find(m => m.id === review.movieId);
+                    %>
+                        <div class="review-card">
+                            <div class="review-header">
+                                <h3><%= movie.title %></h3>
+                                <div class="review-meta">
+                                    <span class="rating">
+                                        <% for(let i=1; i<=5; i++) { %>
+                                            <i class="<%= i <= review.rating ? 'fas' : 'far' %> fa-star"></i>
+                                        <% } %>
+                                    </span>
+                                    <span class="author">by <%= review.author %></span>
+                                    <span class="date"><%= review.date %></span>
+                                </div>
+                            </div>
+                            <div class="review-body">
+                                <p><%= review.comment %></p>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } %>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Reviews Hub. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="/js/script.js"></script>
+</body>
+</html>

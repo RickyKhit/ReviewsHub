@@ -1,0 +1,354 @@
+:root {
+  --primary-black: #000000;
+  --primary-yellow: #f5c518;
+  --primary-white: #ffffff;
+
+  --dark-gray: #121212;
+  --medium-gray: #2e2e2e;
+  --light-gray: #757575;
+
+  --hover-yellow: #ffdf00;
+  --success-color: #00a878;
+  --error-color: #ff3333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--primary-white);
+  background-color: var(--primary-black);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-yellow);
+}
+
+a:hover {
+  color: var(--hover-yellow);
+}
+
+.main-header {
+  background-color: var(--primary-black);
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--primary-yellow);
+}
+
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header h1 {
+  font-size: 1.8rem;
+}
+
+.main-header h1 a {
+  color: var(--primary-yellow);
+  font-weight: bold;
+}
+
+.main-header nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.main-header nav ul li {
+  margin-left: 1.5rem;
+}
+
+.main-header nav ul li a {
+  color: var(--primary-white);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.main-header nav ul li a:hover {
+  color: var(--primary-yellow);
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary-yellow);
+  color: var(--primary-black);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--hover-yellow);
+}
+
+.btn.secondary {
+  background-color: var(--medium-gray);
+  color: var(--primary-white);
+  margin-left: 0.5rem;
+}
+
+.btn.secondary:hover {
+  background-color: var(--light-gray);
+}
+
+.banner {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("/images/cinema-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--primary-white);
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--primary-yellow);
+}
+
+.banner h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.movie-grid {
+  margin: 2rem 0;
+}
+
+.movie-grid h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--primary-yellow);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.movie-card {
+  background: var(--dark-gray);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(245, 197, 24, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid var(--medium-gray);
+}
+
+.movie-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(245, 197, 24, 0.3);
+}
+
+.movie-poster {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--medium-gray);
+}
+
+.movie-info {
+  padding: 1.5rem;
+}
+
+.movie-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-yellow);
+}
+
+.movie-info p {
+  color: var(--light-gray);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.movie-info .btn {
+  margin-top: 0.5rem;
+}
+
+.review-form-section {
+  background: var(--dark-gray);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  margin: 2rem auto;
+  border-left: 4px solid var(--primary-yellow);
+}
+
+.review-form-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-yellow);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--primary-white);
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--medium-gray);
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--primary-white);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.rating-stars i {
+  font-size: 1.5rem;
+  color: var(--primary-yellow);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.rating-stars i:hover,
+.rating-stars i.active {
+  color: var(--hover-yellow);
+}
+
+.reviews-section {
+  margin: 2rem 0;
+}
+
+.reviews-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-yellow);
+}
+
+.filter-controls {
+  margin: 1rem 0 2rem;
+}
+
+.filter-controls select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: var(--medium-gray);
+  border: 1px solid var(--light-gray);
+  font-family: inherit;
+  font-size: 1rem;
+  min-width: 250px;
+  color: var(--primary-white);
+}
+
+.no-reviews {
+  text-align: center;
+  padding: 2rem;
+  color: var(--light-gray);
+  font-style: italic;
+}
+
+.reviews-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.review-card {
+  background: var(--dark-gray);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border-left: 3px solid var(--primary-yellow);
+}
+
+.review-header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.review-header h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-yellow);
+}
+
+.review-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--light-gray);
+}
+
+.review-meta .rating {
+  color: var(--primary-yellow);
+}
+
+.review-meta .author {
+  font-weight: 600;
+  color: var(--primary-white);
+}
+
+.main-footer {
+  background-color: var(--primary-black);
+  color: var(--primary-white);
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  border-top: 2px solid var(--primary-yellow);
+}
+
+.main-footer p {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .main-header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-header nav ul {
+    margin-top: 1rem;
+  }
+
+  .banner h2 {
+    font-size: 2rem;
+  }
+
+  .review-meta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}

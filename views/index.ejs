@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="container">
+        <h1><a href="/">Reviews Hub</a></h1>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/reviews">All Reviews</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <section class="banner">
+        <h2>Discover and Review Movies Without Going To Jail.</h2>
+        <p>Share your honest opinions on cool or suck movies</p>
+      </section>
+
+      <section class="movie-grid">
+        <h3>Movies To Review</h3>
+        <div class="grid">
+          <% movies.forEach(movie => { %>
+          <div class="movie-card">
+            <div
+              class="movie-poster"
+              style="background-image: url('<%= movie.poster %>')"
+            ></div>
+            <div class="movie-info">
+              <h4><%= movie.title %></h4>
+              <p><%= movie.year %> • <%= movie.genre %></p>
+              <p><em>Directed by <%= movie.director %></em></p>
+              <a href="/review/<%= movie.id %>" class="btn">Write Review</a>
+              <a href="/reviews?movieId=<%= movie.id %>" class="btn secondary"
+                >See Reviews</a
+              >
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </section>
+    </main>
+    <footer class="main-footer">
+      <div class="container">
+        <p>&copy; 2025 Reviews Hub. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
